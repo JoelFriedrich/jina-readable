@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Readable</title>
+  <meta name="description" content="Paste a URL, get a clean, readable version via Jina Reader.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <form id="form" class="url-form" autocomplete="off">
+      <input id="url" type="text" inputmode="url" placeholder="Paste a URL to read…" aria-label="URL" spellcheck="false">
+      <button type="submit">Read</button>
+    </form>
+    <details class="settings">
+      <summary aria-label="Reading settings">Aa</summary>
+      <div class="panel">
+        <label>Font
+          <select id="font">
+            <option value="serif">Serif</option>
+            <option value="sans">Sans</option>
+            <option value="mono">Mono</option>
+          </select>
+        </label>
+        <label>Size
+          <input id="size" type="range" min="15" max="24" step="1">
+        </label>
+        <label>Width
+          <input id="width" type="range" min="480" max="960" step="20">
+        </label>
+        <label>Theme
+          <select id="theme">
+            <option value="auto">Auto</option>
+            <option value="light">Light</option>
+            <option value="sepia">Sepia</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+        <label class="check"><input id="raw" type="checkbox"> Show raw markdown</label>
+      </div>
+    </details>
+  </header>
+
+  <main id="main">
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <article id="article" class="prose" hidden></article>
+    <pre id="rawView" class="raw" hidden></pre>
+    <section id="empty" class="empty">
+      <h1>Readable</h1>
+      <p>Paste a link above. The page is fetched through <a href="https://jina.ai/reader/" target="_blank" rel="noopener">Jina Reader</a> and rendered as clean, typographically tuned text.</p>
+      <p class="hint">Tip: open <code>?u=https://example.com</code> to link straight to an article.</p>
+    </section>
+  </main>
+
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/purify.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
